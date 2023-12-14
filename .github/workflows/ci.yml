@@ -123,24 +123,24 @@ jobs:
           go test -v ./...
         env:
           # The hostname used to communicate with the PostgreSQL service container
-          PG_DB_HOST: "postgres"
+          PG_DB_HOST: "localhost"
           PG_DB_PORT: "5432"
           PG_DB_SSLMODE: "false"
           PG_DB_USERNAME: "postgres"
           PG_DB_PASSWORD: "postgres"
 
           # The hostname used to communicate with the Redis service container
-          REDIS_ADDR: "redis:6379"
+          REDIS_ADDR: "localhost:6379"
 
           # The hostname used to communicate with the Mysql service container
-          MYSQL_DB_HOST: "mysql"
-          MYSQL_DB_PORT: "3306"
+          MYSQL_DB_HOST: "localhost"
+          MYSQL_DB_PORT: "33306"
           MYSQL_DB_SSLMODE: "false"
           MYSQL_DB_USERNAME: "mysql"
           MYSQL_DB_PASSWORD: "mysql"
 
           # The hostname used to communicate with the Minio service container
-          MINIO_ENDPOINT: "minio:9000"
+          MINIO_ENDPOINT: "localhost:9000"
           MINIO_ACCESS_KEY: "accesskey"
           MINIO_SECRET_KEY: "password"
           MINIO_SSL: "false"
