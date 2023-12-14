@@ -1,0 +1,59 @@
+kind: Trino
+metadata:
+  name: trion-1
+spec:
+  s3:
+    bucket:
+      name: "trino-test"
+      connection:
+        host:
+        port:
+
+---
+kind: Trino
+metadata:
+  name: trino-2
+spec:
+  s3:
+    bucket:
+      name: "trino-prod"
+      connection:
+        reference: "s3-connection-xxx"
+
+---
+kind: Trion
+metadata:
+  name: trino-3
+spec:
+  s3:
+    bucket:
+      reference: "s3-bucket-xxx"
+
+---
+kind: S3Connection
+metadata:
+  name: s3-connection-xxx
+spec:
+  credential:
+    existingSecret: "pg-root"
+    endpoint:
+    accessKey:
+    secretKey:
+    region:
+    ssl:
+
+#  Endpoint  string `json:"endpoint,omitempty"`
+#  AccessKey string `json:"access_key,omitempty"`
+#  SecretKey string `json:"secret_key,omitempty"`
+#  Region    string `json:"region,omitempty"`
+#  Token     string `json:"token,omitempty"`
+#  SSL       bool   `json:"ssl,omitempty"`
+---
+kind: S3Bucket
+metadata:
+  name: trino-test
+spec:
+  name: "trino-test"
+  reference: "s3-connection-xxx"
+  credential:
+    existingSecret: "pg-root"
