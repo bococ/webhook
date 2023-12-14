@@ -119,6 +119,7 @@ jobs:
           fetch-depth: 0
       - name: Go Test
         run: |
+          docker ps -a
           go test -v ./...
         env:
           # The hostname used to communicate with the PostgreSQL service container
