@@ -109,7 +109,7 @@ jobs:
         env:
           MINIO_ROOT_USER: admin
           MINIO_ROOT_PASSWORD: admin123
-        options: --name=minio --health-cmd "server /data"
+        options: --name=minio --health-cmd "server"
 
     steps:
       - name: Checkout Code
